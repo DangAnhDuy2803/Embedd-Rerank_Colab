@@ -1,0 +1,11 @@
+# === Gọi Colab (embed + rerank qua HTTP) ===
+httpx==0.28.1
+
+# === Vector database (self-host bằng Docker, chỉ riêng Qdrant) ===
+qdrant-client==1.12.1
+
+# === Gọi Gemini API để sinh câu trả lời ===
+google-genai==1.5.0
+
+# === Load biến môi trường từ file .env ===
+python-dotenv>=1.0.0

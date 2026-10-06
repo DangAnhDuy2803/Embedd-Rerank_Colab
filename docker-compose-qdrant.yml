@@ -1,0 +1,20 @@
+# Chỉ Qdrant chạy trong Docker. 2 model bge-m3/bge-reranker chạy trên
+# Google Colab (GPU T4), KHÔNG chạy trên máy cá nhân, nên không cần
+# Docker cho chúng.
+#
+# Chạy: docker compose -f docker-compose-qdrant.yml up -d
+# Dừng: docker compose -f docker-compose-qdrant.yml down
+
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.12.4
+    container_name: rag_colab_qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  qdrant_data:
