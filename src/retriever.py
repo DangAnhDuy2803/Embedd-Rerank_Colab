@@ -3,8 +3,8 @@ Pipeline: embed câu hỏi (Colab) -> tìm trong Qdrant -> rerank (Colab).
 """
 
 from config import TOP_N_CANDIDATE, TOP_K_FINAL
-from colab_client import embed_texts, rerank as colab_rerank
-from vectorstore import search as qdrant_search
+from src.colab_client import embed_texts, rerank as colab_rerank
+from src.vectorstore import search as qdrant_search
 
 
 def retrieve(query: str) -> list[dict]:

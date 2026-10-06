@@ -10,8 +10,8 @@ Hỗ trợ .txt, .md trực tiếp. Yêu cầu Colab đang chạy (xem README.md
 import sys
 
 from config import FILE_PATH
-from colab_client import embed_texts, check_colab_health
-from vectorstore import upsert_chunks, clear_collection
+from src.colab_client import embed_texts, check_colab_health
+from src.vectorstore import upsert_chunks, clear_collection
 
 
 def load_chunks(file_path: str) -> list[str]:

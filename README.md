@@ -125,20 +125,22 @@ Gõ câu hỏi, Enter, xem kết quả. Gõ `exit` để thoát.
 
 ## Cấu trúc file
 
-| File | Vai trò |
+| File / Thư mục | Vai trò |
 |---|---|
 | `.env` | ⚠️ Biến môi trường nhạy cảm — **không commit lên git** |
 | `.env.example` | Template biến môi trường — commit lên git để chia sẻ với team |
 | `.gitignore` | Loại trừ `.env` và các file không cần thiết khỏi git |
 | `config.py` | Đọc biến từ `.env` và định nghĩa các tham số cấu hình |
 | `colab/colab_server.py` | Code copy vào Colab — host bge-m3 + reranker qua HTTP |
-| `colab_client.py` | Gọi `/embed`, `/rerank` trên Colab |
-| `vectorstore.py` | Wrapper Qdrant (tạo collection, upsert, search, scroll toàn bộ) |
+| `src/` | **Gói mã nguồn backend**: chứa các module xử lý nội bộ |
+| ├── `src/colab_client.py` | Gọi `/embed`, `/rerank` trên Colab |
+| ├── `src/gemini_client.py` | Gọi Gemini API, ghép prompt kèm ngữ cảnh & lịch sử |
+| ├── `src/vectorstore.py` | Wrapper Qdrant (tạo collection, upsert, search, scroll toàn bộ) |
+| └── `src/retriever.py` | Pipeline: embed câu hỏi → tìm Qdrant → rerank |
+| `main.py` | Chatbot hỏi-đáp ở terminal (hỗ trợ ghi nhớ lịch sử hội thoại) |
 | `ingest.py` | Đọc file → gọi Colab embed → lưu vào Qdrant |
-| `retriever.py` | Pipeline: embed câu hỏi → tìm Qdrant → rerank |
-| `gemini_client.py` | Gọi Gemini API, ghép prompt kèm ngữ cảnh |
-| `main.py` | Vòng lặp hỏi-đáp ở terminal |
 | `viewer.py` | Xem lại nội dung các chunk đã embed (terminal hoặc HTML) |
+| `history/` | Thư mục lưu lịch sử hội thoại (`chat_history.json`) |
 | `docker-compose-qdrant.yml` | Chạy Qdrant bằng Docker |
 | `sample.txt` | Dữ liệu mẫu để test ngay |
 

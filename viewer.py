@@ -12,7 +12,7 @@ import html as html_lib
 import pathlib
 import webbrowser
 
-from vectorstore import scroll_all, count_points
+from src.vectorstore import scroll_all, count_points
 
 
 def print_to_terminal(chunks: list[dict], keyword: str | None = None):

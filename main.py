@@ -26,10 +26,10 @@ import json
 import pathlib
 from datetime import datetime
 
-from colab_client import check_colab_health
-from vectorstore import collection_is_empty, count_points
-from retriever import retrieve
-from gemini_client import generate_answer
+from src.colab_client import check_colab_health
+from src.vectorstore import collection_is_empty, count_points
+from src.retriever import retrieve
+from src.gemini_client import generate_answer
 
 # Số lượt hội thoại tối đa được đưa vào prompt (để tránh prompt quá dài)
 MAX_HISTORY_TURNS = 10
